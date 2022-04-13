@@ -1,20 +1,62 @@
 .App {
   background-color: $primary-white;
   min-height: 100vh;
-  padding-top: 120px;
+  padding-top: 12rem;
 
   &_home {
     @include fc(1, 0);
     flex-direction: column;
     margin: 0 auto;
-    max-width: 800px;
 
-    .heading {
+    &_heading {
       font-size: 3rem;
       font-weight: 600;
       letter-spacing: -0.175rem;
       margin: 0;
-      margin-bottom: 80px;
+      margin-bottom: 8rem;
+    }
+
+    &_content {
+      margin-top: 8rem;
+
+      .header {
+        margin-bottom: 40px;
+        .title {
+          font-size: 2.8rem;
+          font-weight: 600;
+        }
+
+        .subTitle {
+          text-align: center;
+          font-size: 1.5rem;
+          color: $primary-gray;
+          font-weight: 400;
+        }
+      }
+
+      .body {
+        .App-Input {
+          margin-bottom: 2.2rem;
+        }
+      }
+
+      //
+      &.final-screen {
+        .header .title {
+          text-align: center;
+        }
+      }
+    }
+
+    &_submit {
+      background-color: $primary-blue;
+      color: $primary-white;
+      font-size: 1.4rem;
+      font-weight: 500;
+      width: 40rem;
+      padding: 1.4rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
     }
   }
 }
