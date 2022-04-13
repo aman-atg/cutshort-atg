@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Stepper = ({ steps, currentStep, onClick }) => {
+const Stepper = ({ styles, steps, currentStep, onClick }) => {
   return (
-    <div className="App-Stepper">
+    <div className="App-Stepper" style={styles}>
       {steps.map((_, index) => {
         return (
           <div
@@ -30,12 +30,14 @@ const Stepper = ({ steps, currentStep, onClick }) => {
 };
 
 Stepper.propTypes = {
+  styles: PropTypes.object,
   steps: PropTypes.array.isRequired,
   currentStep: PropTypes.number.isRequired,
   onClick: PropTypes.func,
 };
 
 Stepper.defaultProps = {
+  styles: {},
   onClick: () => {},
 };
 

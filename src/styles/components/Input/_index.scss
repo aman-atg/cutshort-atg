@@ -1,0 +1,28 @@
+// there can be more than one type of inputs
+
+.App-Input {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4rem;
+  label {
+    font-weight: 500;
+    color: $tertiary-black;
+    margin-bottom: 10px;
+  }
+  input {
+    border: 1px solid $quaternary-gray;
+    border-radius: 5px;
+    padding: 1.5rem;
+    width: 100%;
+    font-size: 1.4rem;
+    color: $primary-black;
+
+    &::placeholder {
+      color: $tertiary-gray;
+    }
+    &:focus {
+      outline: none;
+      border: 1px solid $primary-blue;
+    }
+  }
+}
