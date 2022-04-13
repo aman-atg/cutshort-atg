@@ -1,0 +1,20 @@
+.App {
+  background-color: $primary-white;
+  min-height: 100vh;
+  padding-top: 120px;
+
+  &_home {
+    @include fc(1, 0);
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 800px;
+
+    .heading {
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: -0.175rem;
+      margin: 0;
+      margin-bottom: 80px;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+.App-Stepper {
+  @include fc;
+  width: 600px;
+
+  &_step {
+    @include fc;
+    padding: 0 4px;
+    position: relative;
+    cursor: pointer;
+    flex: 1;
+
+    .circle {
+      @include fc;
+      z-index: 1;
+      width: 2.4rem;
+      height: 2.4rem;
+      padding: 2rem;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      font-weight: 500;
+      background-color: $primary-white;
+      color: $primary-gray;
+      transition: all 0.5s ease-in-out;
+      border: 1px solid $quaternary-gray;
+    }
+
+    .stepper-line {
+      transition: all 0.75s ease;
+      position: absolute;
+      top: 50%;
+      height: 1px;
+      border: 1px solid $quaternary-gray;
+
+      &.left {
+        right: 50%;
+        left: 0;
+      }
+
+      &.right {
+        left: 50%;
+        right: 0;
+      }
+    }
+
+    // active or visited state
+    &.active,
+    &.visited {
+      .circle {
+        color: $primary-white;
+        background-color: $primary-blue;
+      }
+
+      .stepper-line {
+        border-color: $primary-blue;
+      }
+    }
+  }
+}
