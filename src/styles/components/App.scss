@@ -34,6 +34,15 @@
           color: $primary-gray;
           font-weight: 400;
         }
+
+        @include down-query(440px) {
+          .title {
+            font-size: 2.6rem;
+          }
+          .subTitle {
+            font-size: 1.4rem;
+          }
+        }
       }
 
       .body {
@@ -105,5 +114,13 @@
       border-radius: 0.5rem;
       cursor: pointer;
     }
+  }
+}
+
+//
+
+html {
+  @include down-query(600px) {
+    font-size: 7px;
   }
 }

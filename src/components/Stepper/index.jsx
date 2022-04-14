@@ -21,9 +21,7 @@ const Stepper = ({ styles, steps, length, currentStep, onClick }) => {
 
             {index !== 0 && <div className="stepper-line left" />}
 
-            {index !== steps.length - 1 && (
-              <div className="stepper-line right" />
-            )}
+            {index !== stepsCount - 1 && <div className="stepper-line right" />}
           </div>
         );
       })}
