@@ -113,7 +113,7 @@ function App() {
                 <Input
                   name={`someId_2.workspaceUrl`}
                   label="Workspace URL"
-                  placeholder="Eden"
+                  placeholder="Example"
                   error={error?.message}
                   isOptional
                   leftDefault="www.eden.com/"

@@ -8,21 +8,55 @@
     font-weight: 500;
     color: $tertiary-black;
     margin-bottom: 10px;
+    .optional {
+      color: $secondary-gray;
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
   }
-  input {
-    border: 1px solid $quaternary-gray;
-    border-radius: 5px;
-    padding: 1.5rem;
-    width: 100%;
-    font-size: 1.4rem;
-    color: $primary-black;
 
-    &::placeholder {
-      color: $tertiary-gray;
+  &_input-container {
+    @include fc(1, 0);
+
+    .left-default {
+      background-color: $tertiary-white;
+      border: 1px solid $quaternary-gray;
+      padding: 1.5rem;
+      font-size: 1.4rem;
+      border-radius: 0.5rem;
+      border-right: none;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      line-height: 1.7rem;
+      color: $quinary-gray;
     }
-    &:focus {
-      outline: none;
-      border: 1px solid $primary-blue;
+    input {
+      border: 1px solid $quaternary-gray;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      width: 100%;
+      font-size: 1.4rem;
+      color: $primary-black;
+
+      &::placeholder {
+        color: $tertiary-gray;
+      }
+      &:focus {
+        outline: none;
+        border: 1px solid $primary-blue;
+      }
+
+      &.left-present {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
     }
+  }
+
+  &_error {
+    color: red;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    font-weight: 500;
   }
 }
