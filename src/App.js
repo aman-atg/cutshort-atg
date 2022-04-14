@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import "./App.scss";
+import CardInput from "./components/CardInput";
 import Input from "./components/Input";
 import Stepper from "./components/Stepper";
+import { ReactComponent as CheckIcon } from "./assets/icons/check.svg";
 
 const steps = [
   {
@@ -34,7 +36,7 @@ const steps = [
   },
 ];
 function App() {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(2);
   const isLastStep = currentStep === steps.length - 1;
 
   const {
@@ -126,9 +128,50 @@ function App() {
           </>
         );
       case 2:
-        return <></>;
+        return (
+          <div
+            style={{
+              marginBottom: 20,
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Controller
+              render={({ field, fieldState: { error } }) => (
+                <CardInput
+                  name="someId_3.useCase"
+                  value="myself"
+                  onChange={field.onChange}
+                  error={error?.message}
+                  isActive={field.value === "myself"}
+                >
+                  <h1>Myself</h1>
+                </CardInput>
+              )}
+              control={control}
+              name="someId_3.useCase"
+              rules={{ required: "Please enter your use case" }}
+            />
+            <Controller
+              render={({ field, fieldState: { error } }) => (
+                <CardInput
+                  name="someId_3.useCase"
+                  value="team"
+                  onChange={field.onChange}
+                  error={error?.message}
+                  isActive={field.value === "team"}
+                >
+                  <h1>My team</h1>
+                </CardInput>
+              )}
+              control={control}
+              name="someId_3.useCase"
+              rules={{ required: "Please enter your use case" }}
+            />
+          </div>
+        );
       default:
-        return <h1>Step 1</h1>;
+        return;
     }
   };
 
@@ -157,6 +200,9 @@ function App() {
         />
 
         <div className={`App_home_content ${isLastStep ? "final-screen" : ""}`}>
+          <div className="icon-container">
+            <CheckIcon />
+          </div>
           <div className="header">
             <h1 className="title">{steps[currentStep].title}</h1>
             <h2 className="subTitle"> {steps[currentStep].subTitle}</h2>

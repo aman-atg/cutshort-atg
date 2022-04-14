@@ -1,0 +1,10 @@
+.App-CardInput {
+  border: 1px solid $quaternary-gray;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  cursor: pointer;
+
+  &.active {
+    border-color: $primary-blue;
+  }
+}

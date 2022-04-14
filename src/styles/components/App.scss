@@ -43,12 +43,36 @@
         .App-Input {
           margin-bottom: 2.2rem;
         }
+
+        .App-CardInput {
+          flex: 1;
+
+          &:not(:last-child) {
+            margin-right: 3rem;
+          }
+        }
       }
 
-      //
+      .icon-container {
+        background-color: $primary-blue;
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        display: none;
+        margin: 0 auto;
+        margin-bottom: 4rem;
+      }
+
       &.final-screen {
-        .header .title {
-          text-align: center;
+        .icon-container {
+          @include fc;
+        }
+
+        .header {
+          margin-bottom: 4rem;
+          .title {
+            text-align: center;
+          }
         }
       }
     }
