@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 // user can pass steps or length of steps
 const Stepper = ({ styles, steps, length, currentStep, onClick }) => {
   const stepsCount = steps.length ? steps.length : length;
-  console.log({ stepsCount });
   return (
     <div className="App-Stepper" style={styles}>
       {[...Array(stepsCount)].map((_, index) => {
