@@ -50,11 +50,29 @@
           &:not(:last-child) {
             margin-right: 3rem;
           }
+
+          .CustomCard {
+            text-align: left;
+            &_icon-container {
+              margin-bottom: 1.5rem;
+            }
+            h2 {
+              font-weight: 600;
+              font-size: 1.6rem;
+              margin: 0;
+              margin-bottom: 1rem;
+            }
+            p {
+              font-size: 1.4rem;
+              color: $primary-gray;
+            }
+          }
         }
       }
 
-      .icon-container {
+      .final-icon {
         background-color: $primary-blue;
+        fill: #fff;
         width: 6rem;
         height: 6rem;
         border-radius: 50%;
@@ -64,7 +82,7 @@
       }
 
       &.final-screen {
-        .icon-container {
+        .final-icon {
           @include fc;
         }
 

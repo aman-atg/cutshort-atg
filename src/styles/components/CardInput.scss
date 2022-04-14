@@ -3,8 +3,14 @@
   border-radius: 0.5rem;
   padding: 1.5rem;
   cursor: pointer;
+  fill: $secondary-black;
 
   &.active {
     border-color: $primary-blue;
+    fill: $primary-blue;
+  }
+  &.error {
+    border-color: $primary-red;
+    // fill: $primary-red;
   }
 }

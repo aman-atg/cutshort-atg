@@ -9,14 +9,15 @@ const CardInput = ({
 }) => {
   return (
     <button
-      className={`App-CardInput ${isActive ? "active" : ""}`}
+      className={`App-CardInput ${isActive ? "active" : ""} ${
+        error ? "error" : ""
+      }`}
       onClick={() => onChange(value)}
       id={name}
       type="button"
       {...rest}
     >
       {children}
-      {error && <div className="App-CardInput_error">{error}</div>}
     </button>
   );
 };

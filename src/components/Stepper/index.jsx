@@ -1,14 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Stepper = ({ styles, steps, currentStep, onClick }) => {
+// user can pass steps or length of steps
+const Stepper = ({ styles, steps, length, currentStep, onClick }) => {
+  const stepsCount = steps.length ? steps.length : length;
+  console.log({ stepsCount });
   return (
     <div className="App-Stepper" style={styles}>
-      {steps.map((_, index) => {
+      {[...Array(stepsCount)].map((_, index) => {
         return (
           <div
             key={index}
-            className={`App-Stepper_step ${
+            className={`App-Stepper_step noSelect ${
               currentStep === index ? "active" : ""
             }
             ${currentStep > index ? "visited" : ""}
@@ -31,13 +34,16 @@ const Stepper = ({ styles, steps, currentStep, onClick }) => {
 
 Stepper.propTypes = {
   styles: PropTypes.object,
-  steps: PropTypes.array.isRequired,
+  steps: PropTypes.array,
+  length: PropTypes.number,
   currentStep: PropTypes.number.isRequired,
   onClick: PropTypes.func,
 };
 
 Stepper.defaultProps = {
   styles: {},
+  steps: [],
+  length: 0,
   onClick: () => {},
 };
 

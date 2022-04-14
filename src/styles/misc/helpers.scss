@@ -101,3 +101,14 @@ p {
   margin: 0;
   padding: 0;
 }
+
+// #### HELPER CLASSES ####
+
+.noSelect {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  &:focus {
+    outline: none;
+  }
+}

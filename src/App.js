@@ -5,6 +5,8 @@ import CardInput from "./components/CardInput";
 import Input from "./components/Input";
 import Stepper from "./components/Stepper";
 import { ReactComponent as CheckIcon } from "./assets/icons/check.svg";
+import { ReactComponent as UserIcon } from "./assets/icons/user.svg";
+import { ReactComponent as GroupIcon } from "./assets/icons/group.svg";
 
 const steps = [
   {
@@ -36,14 +38,10 @@ const steps = [
   },
 ];
 function App() {
-  const [currentStep, setCurrentStep] = useState(2);
+  const [currentStep, setCurrentStep] = useState(0);
   const isLastStep = currentStep === steps.length - 1;
 
-  const {
-    handleSubmit,
-    control,
-    formState: { isValid },
-  } = useForm({
+  const { handleSubmit, control } = useForm({
     mode: "onChange",
     defaultValues: {
       someId_1: {
@@ -54,8 +52,19 @@ function App() {
         workspaceName: "",
         workspaceUrl: "",
       },
+      someId_3: {
+        useCase: "",
+      },
     },
   });
+
+  const renderCustomCard = (icon, title, desc) => (
+    <div className="CustomCard">
+      <div className="CustomCard_icon-container">{icon}</div>
+      <h2>{title}</h2>
+      <p>{desc}</p>
+    </div>
+  );
 
   const renderStep = () => {
     switch (currentStep) {
@@ -131,7 +140,7 @@ function App() {
         return (
           <div
             style={{
-              marginBottom: 20,
+              marginBottom: 24,
               display: "flex",
               justifyContent: "center",
             }}
@@ -145,7 +154,11 @@ function App() {
                   error={error?.message}
                   isActive={field.value === "myself"}
                 >
-                  <h1>Myself</h1>
+                  {renderCustomCard(
+                    <UserIcon />,
+                    "For myself",
+                    "Write better. Think more clearly. Stay organized."
+                  )}
                 </CardInput>
               )}
               control={control}
@@ -161,7 +174,11 @@ function App() {
                   error={error?.message}
                   isActive={field.value === "team"}
                 >
-                  <h1>My team</h1>
+                  {renderCustomCard(
+                    <GroupIcon />,
+                    "With my team",
+                    "Wikis, docs, tasks & projects, all in one place."
+                  )}
                 </CardInput>
               )}
               control={control}
@@ -176,18 +193,15 @@ function App() {
   };
 
   const onSubmit = (data) => {
-    console.log("submit", data, isValid);
-
-    // validation : show msg if not valid
-
+    // console.log("submit", data);
     if (isLastStep) {
       // launch()
+      console.log("Final Step :", data);
       return;
     }
-    // setTimeout(() => {
     setCurrentStep((prev) => prev + 1);
-    // }, 1000);
   };
+
   return (
     <div className="App">
       <form onSubmit={handleSubmit(onSubmit)} className="App_home">
@@ -195,12 +209,19 @@ function App() {
 
         <Stepper
           styles={{ maxWidth: 400 }}
-          steps={[1, 2, 3, 4]}
+          // steps={[1, 2, 3, 4]}
+          length={steps.length}
           currentStep={currentStep}
+          onClick={(step) => {
+            // validateStep(step)
+            if (step < currentStep) {
+              setCurrentStep(step);
+            }
+          }}
         />
 
         <div className={`App_home_content ${isLastStep ? "final-screen" : ""}`}>
-          <div className="icon-container">
+          <div className="final-icon">
             <CheckIcon />
           </div>
           <div className="header">
